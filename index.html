@@ -66,10 +66,12 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="login" class="nav-link border border-light rounded"
-              target="_blank">
-              <i class="fa fa-user mr-2"></i>Ingresar
-            </a>
+            <div class="nav-link border border-light rounded" id="usuario">
+                <a href="login"
+                  target="_blank">
+                  <i class="fa fa-user mr-2"></i>Ingresar
+                </a>
+            </div>
           </li>
         </ul>
 
@@ -92,10 +94,10 @@
           <div class="col-md-6 align-items-center">
             <div class="row">
               <div class="col-md-6">
-                <input type="text" name="buscador" class="input-buscar" placeholder="Buscar un objeto">
+                <input type="text" name="buscador" id="searchText1" class="input-buscar" placeholder="Buscar un objeto">
               </div>
               <div class="col-md-6">
-                <button type="button" class="btn btn-buscar">Buscar</button>
+                <a type="button" href="#market" class="btn btn-buscar" id="searchButton1">Buscar</a>
               </div>
             </div>
           </div>
@@ -146,10 +148,10 @@
             <div class="col-md-6">
               <div class="row">
                 <div class="col-md-8">
-                  <input type="text" id="suffixInside" class="form-control input-buscar2" placeholder="Buscar un producto">
+                  <input type="text" id="searchText" class="form-control input-buscar2" placeholder="Buscar un producto">
                 </div>
                 <div class="col-md-4">
-                  <button type="button" class="btn btn-filtro">Buscar</button>
+                  <button type="button" class="btn btn-filtro" id="searchButton">Buscar</button>
                 </div>
               </div>
             </div>
@@ -168,274 +170,26 @@
             </div>
 
             <!--Grid row duplicar-->
-            <div class="row">
+            <div class="row" id="buscar_here">
 
               <!--Grid column-->
-              <div class="col-md-6 mb-4">
+              <div class="col-md-6 mb-4" id="ventas">
 
-                <!-- Card -->
-                <div class="card">
-
-                  <!-- Card content -->
-                  <div class="card-body">
-
-                    <!-- Title -->
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div style="border-radius: 50%; border-color: #ABB1BA; width: 50px;">
-                          <img src="img/ghost.jpg" style="max-width: 100px;">
-                        </div>
-                      </div>
-                      <div class="col-md-4 mt-4">
-                        <h5><a href="">SET GHOST</a></h5>
-                        <h5>10 <i class="fa fa-puzzle-piece"></i></h5>
-                        <h5>1 war + 3 fg</h5>
-                      </div>
-                      <div class="col-md-4 mt-5">
-                        <button type="button" class="btn btn-primary">VENDER</button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Card footer -->
-                  <div class="rounded-bottom mdb-color lighten-3 text-left pt-3">
-                    <ul class="list-unstyled list-inline font-small ml-4">
-                      <li class="list-inline-item"><img src="img/bk.PNG" style="max-width: 50px; border-radius: 50%"></li>
-                      <li class="list-inline-item"><a href="">InfamusBK</a></li>
-                      <li class="list-inline-item pr-2 black-text">EN LÍNEA AHORA</li>
-                    </ul>
-                  </div>
-
-                </div>
-                <!-- Card -->
+             
 
               </div>
               <!--Grid column-->
 
               <!--Grid column-->
-              <div class="col-md-6 mb-4">
+              <div class="col-md-6 mb-4" id="compras">
                 
-                <!-- Card -->
-                <div class="card">
-
-                  <!-- Card content -->
-                  <div class="card-body">
-
-                    <!-- Title -->
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div style="border-radius: 50%; border-color: #ABB1BA; width: 50px;">
-                          <img src="img/ghost.jpg" style="max-width: 100px;">
-                        </div>
-                      </div>
-                      <div class="col-md-4 mt-4">
-                        <h5><a href="">SET GHOST</a></h5>
-                        <h5>10 <i class="fa fa-puzzle-piece"></i></h5>
-                        <h5>1 war + 3 fg</h5>
-                      </div>
-                      <div class="col-md-4 mt-5">
-                        <button type="button" class="btn btn-primary">COMPRAR</button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Card footer -->
-                  <div class="rounded-bottom mdb-color lighten-3 text-left pt-3">
-                    <ul class="list-unstyled list-inline font-small ml-4">
-                      <li class="list-inline-item"><img src="img/bk.PNG" style="max-width: 50px; border-radius: 50%"></li>
-                      <li class="list-inline-item"><a href="">InfamusBK</a></li>
-                      <li class="list-inline-item pr-2 black-text">EN LÍNEA AHORA</li>
-                    </ul>
-                  </div>
-
-                </div>
-                <!-- Card -->
+                
 
               </div>
               <!--Grid column-->
 
             </div>
-            <!--Grid row-->
 
-             <!--Grid row duplicar-->
-            <div class="row">
-
-              <!--Grid column-->
-              <div class="col-md-6 mb-4">
-
-                <!-- Card -->
-                <div class="card">
-
-                  <!-- Card content -->
-                  <div class="card-body">
-
-                    <!-- Title -->
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div style="border-radius: 50%; border-color: #ABB1BA; width: 50px;">
-                          <img src="img/ghost.jpg" style="max-width: 100px;">
-                        </div>
-                      </div>
-                      <div class="col-md-4 mt-4">
-                        <h5><a href="">SET GHOST</a></h5>
-                        <h5>10 <i class="fa fa-puzzle-piece"></i></h5>
-                        <h5>1 war + 3 fg</h5>
-                      </div>
-                      <div class="col-md-4 mt-5">
-                        <button type="button" class="btn btn-primary">VENDER</button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Card footer -->
-                  <div class="rounded-bottom mdb-color lighten-3 text-left pt-3">
-                    <ul class="list-unstyled list-inline font-small ml-4">
-                      <li class="list-inline-item"><img src="img/bk.PNG" style="max-width: 50px; border-radius: 50%"></li>
-                      <li class="list-inline-item"><a href="">InfamusBK</a></li>
-                      <li class="list-inline-item pr-2 black-text">EN LÍNEA AHORA</li>
-                    </ul>
-                  </div>
-
-                </div>
-                <!-- Card -->
-
-              </div>
-              <!--Grid column-->
-
-              <!--Grid column-->
-              <div class="col-md-6 mb-4">
-                
-                <!-- Card -->
-                <div class="card">
-
-                  <!-- Card content -->
-                  <div class="card-body">
-
-                    <!-- Title -->
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div style="border-radius: 50%; border-color: #ABB1BA; width: 50px;">
-                          <img src="img/ghost.jpg" style="max-width: 100px;">
-                        </div>
-                      </div>
-                      <div class="col-md-4 mt-4">
-                        <h5><a href="">SET GHOST</a></h5>
-                        <h5>10 <i class="fa fa-puzzle-piece"></i></h5>
-                        <h5>1 war + 3 fg</h5>
-                      </div>
-                      <div class="col-md-4 mt-5">
-                        <button type="button" class="btn btn-primary">COMPRAR</button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Card footer -->
-                  <div class="rounded-bottom mdb-color lighten-3 text-left pt-3">
-                    <ul class="list-unstyled list-inline font-small ml-4">
-                      <li class="list-inline-item"><img src="img/bk.PNG" style="max-width: 50px; border-radius: 50%"></li>
-                      <li class="list-inline-item"><a href="">InfamusBK</a></li>
-                      <li class="list-inline-item pr-2 black-text">EN LÍNEA AHORA</li>
-                    </ul>
-                  </div>
-
-                </div>
-                <!-- Card -->
-
-              </div>
-              <!--Grid column-->
-
-            </div>
-            <!--Grid row-->
-
-             <!--Grid row duplicar-->
-            <div class="row">
-
-              <!--Grid column-->
-              <div class="col-md-6 mb-4">
-
-                <!-- Card -->
-                <div class="card">
-
-                  <!-- Card content -->
-                  <div class="card-body">
-
-                    <!-- Title -->
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div style="border-radius: 50%; border-color: #ABB1BA; width: 50px;">
-                          <img src="img/ghost.jpg" style="max-width: 100px;">
-                        </div>
-                      </div>
-                      <div class="col-md-4 mt-4">
-                        <h5><a href="">SET GHOST</a></h5>
-                        <h5>10 <i class="fa fa-puzzle-piece"></i></h5>
-                        <h5>1 war + 3 fg</h5>
-                      </div>
-                      <div class="col-md-4 mt-5">
-                        <button type="button" class="btn btn-primary">VENDER</button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Card footer -->
-                  <div class="rounded-bottom mdb-color lighten-3 text-left pt-3">
-                    <ul class="list-unstyled list-inline font-small ml-4">
-                      <li class="list-inline-item"><img src="img/bk.PNG" style="max-width: 50px; border-radius: 50%"></li>
-                      <li class="list-inline-item"><a href="">InfamusBK</a></li>
-                      <li class="list-inline-item pr-2 black-text">EN LÍNEA AHORA</li>
-                    </ul>
-                  </div>
-
-                </div>
-                <!-- Card -->
-
-              </div>
-              <!--Grid column-->
-
-              <!--Grid column-->
-              <div class="col-md-6 mb-4">
-                
-                <!-- Card -->
-                <div class="card">
-
-                  <!-- Card content -->
-                  <div class="card-body">
-
-                    <!-- Title -->
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div style="border-radius: 50%; border-color: #ABB1BA; width: 50px;">
-                          <img src="img/ghost.jpg" style="max-width: 100px;">
-                        </div>
-                      </div>
-                      <div class="col-md-4 mt-4">
-                        <h5><a href="">SET GHOST</a></h5>
-                        <h5>10 <i class="fa fa-puzzle-piece"></i></h5>
-                        <h5>1 war + 3 fg</h5>
-                      </div>
-                      <div class="col-md-4 mt-5">
-                        <button type="button" class="btn btn-primary">COMPRAR</button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Card footer -->
-                  <div class="rounded-bottom mdb-color lighten-3 text-left pt-3">
-                    <ul class="list-unstyled list-inline font-small ml-4">
-                      <li class="list-inline-item"><img src="img/bk.PNG" style="max-width: 50px; border-radius: 50%"></li>
-                      <li class="list-inline-item"><a href="">InfamusBK</a></li>
-                      <li class="list-inline-item pr-2 black-text">EN LÍNEA AHORA</li>
-                    </ul>
-                  </div>
-
-                </div>
-                <!-- Card -->
-
-              </div>
-              <!--Grid column-->
-
-            </div>
-            <!--Grid row-->
         </div>
 
       </section>
@@ -444,6 +198,32 @@
     </div>
   </main>
   <!--Main layout-->
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="tituloModal">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <h5 id="textoModal">¿Está seguro que quiere vender ?</h5>
+          <div class="form-group">                                 
+            <label for="comment">Comentarios:</label>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="enviarDatos()">Enviar</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
   <!--Footer-->
   <footer class="page-footer text-center font-small mt-4 wow fadeIn">
@@ -509,6 +289,7 @@
   <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
   <script type="text/javascript" src="js/utils.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
   <!-- Initializations -->
   <script type="text/javascript">
     // Animations initialization

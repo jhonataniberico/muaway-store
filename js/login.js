@@ -13,6 +13,7 @@ function ingresar(){
     }
     ref.orderByChild("email").on("child_added", function(snapshot){
         var d = snapshot.val();
+        var key = snapshot.key;
         if(email != d.email){
            alert('Email incorrecto');
             return;
@@ -22,6 +23,11 @@ function ingresar(){
             return;
         }
         if(email == d.email && contra == d.password){
+            firebase.database().ref("usuarios/"+key).update({'estado': 1});
+            localStorage.setItem("key", key);
+            localStorage.setItem("user", d.usuario);
+            localStorage.setItem("clase", d.clase);
+            localStorage.setItem("email", d.email);
             location.href = "dashboard";
         }
     });

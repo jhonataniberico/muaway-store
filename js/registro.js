@@ -43,10 +43,12 @@ function registrar(){
 	  email 		: email,
 	  password 		: password,
 	  usuario 		: usuario,
-	  clase 		: clase
+	  clase 		: clase,
+	  estado 		: 1
 	}).then(function() {
 		console.log("Usuario creado");
 		$("input").val("");
+		location.href = "registro";
     })
     .catch(function(error) {
         console.log('detectado un error', error);
