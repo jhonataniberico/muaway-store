@@ -48,9 +48,6 @@
           <li class="nav-item">
             <a class="nav-link" href="index">Market</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">Registro</a>
-          </li>
         </ul>
 
         <!-- Right -->
@@ -65,10 +62,12 @@
               <i class="fab fa-twitter"></i>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="login" class="nav-link border border-light rounded">
-              <i class="fa fa-user mr-2"></i>Cerrar
-            </a>
+          <li class="nav-item" >
+            <div class="nav-link border border-light rounded" id="usuario">
+              <a href="login">
+                <i class="fa fa-user mr-2"></i>Cerrar
+              </a>
+            </div>
           </li>
         </ul>
 
@@ -125,16 +124,24 @@
 
                 <p class="h4 mb-4">¿Qué quiero hacer?</p>
 
-                <!-- Material inline 1 -->
-                <div class="form-check form-check-inline">
-                  <input type="radio" class="form-check-input" id="comprar" name="comprar">
+                <!--<div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" id="comprar" name="compra" value="comprar">
                   <label class="form-check-label" for="comprar">Comprar</label>
                 </div>
 
-                <!-- Material inline 2 -->
                 <div class="form-check form-check-inline">
-                  <input type="radio" class="form-check-input" id="vender" name="vender">
+                  <input type="radio" class="form-check-input" id="vender" name="venta" value="vender">
                   <label class="form-check-label" for="vender">Vender</label>
+                </div>-->
+
+                <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" id="comprar" name="gender" value="comprar">
+                  <label for="comprar" class="form-check-label">Comprar</label><br>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" id="vender" name="gender" value="vender">
+                  <label for="vender" class="form-check-label">Vender</label><br>
                 </div>
 
                 <!-- E-mail -->
@@ -143,20 +150,20 @@
                 </div>
 
                 <!-- Password -->
-                <input type="number" id="cantidad" class="form-control mb-4" placeholder="Stock del producto">
+                <input type="number" id="cantidad" class="form-control mb-4" placeholder="Stock del producto (Número de productos a vender)">
 
                 <div class="row">
                   <div class="col-3">
-                    <input type="number" id="red" class="form-control mb-4" placeholder="Red Box">
-                  </div>
-                  <div class="col-3">
-                    <input type="text" id="fg" class="form-control mb-4" placeholder="Fenrir Gold">
+                    <input type="text" id="style" class="form-control mb-4" placeholder="Style">
                   </div>
                   <div class="col-3">
                     <input type="text" id="war" class="form-control mb-4" placeholder="War">
                   </div>
                   <div class="col-3">
-                    <input type="text" id="style" class="form-control mb-4" placeholder="Style">
+                    <input type="text" id="fg" class="form-control mb-4" placeholder="Fenrir Gold">
+                  </div>
+                  <div class="col-3">
+                    <input type="number" id="red" class="form-control mb-4" placeholder="Red Box">
                   </div>
                 </div>
 
@@ -437,6 +444,24 @@
     
     /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
     autocomplete(document.getElementById("myInput"), countries);
+
+    $( "#myInput" ).change(function() {
+      keyExists($( "#myInput" ).val(), countries);
+      console.log(keyExists($( "#myInput" ).val(), countries));
+
+      function keyExists(key, search) {
+        if (!search || (search.constructor !== Array && search.constructor !== Object)) {
+            return false;
+        }
+        for (var i = 0; i < search.length; i++) {
+            if (search[i] === key.toUpperCase() ) {
+                return true;
+            }
+        }
+        return key in search;
+    }
+    });
+
     </script>
 </body>
 

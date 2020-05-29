@@ -1,4 +1,11 @@
 function ingresar(){
+    var Obj = {              
+        arrayOne: [], 
+        arrayTwo: [] 
+    };
+    var clave = "";
+    var usuario = "";
+    var clase = "";
 	var db = firebase.database();
     var ref = db.ref("usuarios");
     var email = $('#email').val();
@@ -13,22 +20,37 @@ function ingresar(){
     }
     ref.orderByChild("email").on("child_added", function(snapshot){
         var d = snapshot.val();
-        var key = snapshot.key;
-        if(email != d.email){
-           alert('Email incorrecto');
+        clave = snapshot.key;
+        Obj.arrayOne.push(d.email); 
+        Obj.arrayTwo.push(d.password);
+        usuario = d.usuario;
+        clase = d.clase;
+    });
+    setTimeout(function(){
+        if(keyExists(email, Obj.arrayOne) == false) {
+            alert('Email incorrecto');
             return;
         }
-        if(contra != d.password){
+        if(keyExists(contra, Obj.arrayTwo) == false) {
             alert('Contraseña incorrecta');
             return;
         }
-        if(email == d.email && contra == d.password){
-            firebase.database().ref("usuarios/"+key).update({'estado': 1});
-            localStorage.setItem("key", key);
-            localStorage.setItem("user", d.usuario);
-            localStorage.setItem("clase", d.clase);
-            localStorage.setItem("email", d.email);
+        if(keyExists(email, Obj.arrayOne) == true && keyExists(contra, Obj.arrayTwo) == true) {
+            firebase.database().ref("usuarios/"+clave).update({'estado': 1});
+            localStorage.setItem("key", clave);
+            localStorage.setItem("user", usuario);
+            localStorage.setItem("clase", clase);
+            localStorage.setItem("email", email);
             location.href = "dashboard";
         }
-    });
+    }, 2000);
+}
+
+function keyExists(key, search) {
+    for (var i = 0; i < search.length; i++) {
+        if (search[i] === key) {
+            return true;
+        }
+    }
+    return key in search;
 }

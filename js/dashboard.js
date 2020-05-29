@@ -1,8 +1,25 @@
 $(function() {
-	if(localStorage.getItem("key") == "" || localStorage.getItem("key") == undefined) {
-		location.href = "login";
+	if(localStorage.getItem("key") == ""  || localStorage.getItem("key") == null || localStorage.getItem("key") == undefined) {
+        location.href = "login";
 		return;
-	}
+    }else {
+
+        var option  = '<select class="selectpicker" id="usuarioDrop" style="background: rgba(0,0,0,0.0); color: white; border: none;">'+
+                          '<option disabled selected><span>'+localStorage.getItem("user")+'</span></option>'+
+                          '<option value="cerrar" style="color: black !important">Cerrar</option>'+
+                        '</select>';
+        var img = '<img src="'+(localStorage.getItem("clase") == 1 ? 'img/bk.PNG' : localStorage.getItem("clase") == 2 ? 'img/mg.PNG' : localStorage.getItem("clase") == 3 ? 'img/mago.PNG' : 'img/elf.PNG')+'" style="max-width: 30px; border-radius: 50%">';
+        $('#usuario').html(img+option);
+    }
+
+    $( "#usuarioDrop" ).change(function() {
+      var opcion = $('#usuarioDrop').val();
+      if(opcion == "cerrar") {
+        firebase.database().ref("usuarios/"+localStorage.getItem("key")).update({'estado': 0});
+        localStorage.clear();
+        location.href = 'login';
+      }
+    });
 	setTimeout(function(){ busca_user(); }, 1000);
 });
 
@@ -41,7 +58,7 @@ function agregar(){
 	if(comprar == true) {
 		var referencia1 = databaseService.ref('usuarios/'+localStorage.getItem("key")+'/compras/'+refItem);
 		referencia1.update({
-	      	producto 		: producto,
+	      	producto 		: producto.toUpperCase(),
 			 cantidad		: cantidad,
 			 red 		    : red,
 			 fg 		    : fg,
@@ -58,7 +75,7 @@ function agregar(){
 	}else {
 		var referencia1 = databaseService.ref('usuarios/'+localStorage.getItem("key")+'/ventas/'+refItem);
 		referencia1.update({
-	      	producto 		: producto,
+	      	producto 		: producto.toUpperCase(),
 			 cantidad		: cantidad,
 			 red 		    : red,
 			 fg 		    : fg,
@@ -77,8 +94,7 @@ function agregar(){
 
 var rank=1;
 var rank2=1;
-function busca_user() {  
-setTimeout(function(){
+function busca_user() {
 var db = firebase.database();
 var ref = db.ref('usuarios/'+localStorage.getItem("key")+'/ventas/');
 var ref2 = db.ref('usuarios/'+localStorage.getItem("key")+'/compras/');
@@ -103,7 +119,7 @@ ref.on("child_added", function(snapshot){
 	              '<td>'+d.producto+'</td>'+
 	              '<td>'+d.cantidad+'</td>'+
 	              '<td>'+(d.style == '' ? '' : d.style+' style ')+(d.war == '' ? '' : d.war+' war ')+(d.fg == '' ? '' : d.fg+' fg ')+(d.red == '' ? '' : d.red+' red box')+'</td>'+
-	              '<td><button type="button" class="btn btn-danger px-3"><i class="fas fa-trash" aria-hidden="true"></i></button><button type="button" style="'+none+'" class="btn btn-success px-3" onclick="mostrarModal(&#39;'+snapshot.key+'&#39; , &#39;ventas&#39;)"><i class="far fa-thumbs-up" aria-hidden="true"></i></button></td>'+
+	              '<td><button type="button" onclick="eliminarProd(&#39;'+snapshot.key+'&#39; , &#39;ventas&#39;)" class="btn btn-danger px-3"><i class="fas fa-trash" aria-hidden="true"></i></button><button type="button" style="'+none+'" class="btn btn-success px-3" onclick="mostrarModal(&#39;'+snapshot.key+'&#39; , &#39;ventas&#39;)"><i class="far fa-thumbs-up" aria-hidden="true"></i></button></td>'+
 	            '</tr>';
     $( ".table_body_ventas" ).append(tabla);
     rank++;
@@ -129,7 +145,7 @@ ref2.on("child_added", function(snapshot){
 	              '<td>'+d.producto+'</td>'+
 	              '<td>'+d.cantidad+'</td>'+
 	              '<td>'+(d.style == '' ? '' : d.style+' style ')+(d.war == '' ? '' : d.war+' war ')+(d.fg == '' ? '' : d.fg+' fg ')+(d.red == '' ? '' : d.red+' red box')+'</td>'+
-	              '<td><button type="button" class="btn btn-danger px-3"><i class="fas fa-trash" aria-hidden="true"></i></button><button type="button" style="'+none+'" onclick="mostrarModal(&#39;'+snapshot.key+'&#39; , &#39;compras&#39;)" class="btn btn-success px-3"><i class="far fa-thumbs-up" aria-hidden="true"></i></button></td>'+
+	              '<td><button type="button" onclick="eliminarProd(&#39;'+snapshot.key+'&#39; , &#39;compras&#39;)" class="btn btn-danger px-3"><i class="fas fa-trash" aria-hidden="true"></i></button><button type="button" style="'+none+'" onclick="mostrarModal(&#39;'+snapshot.key+'&#39; , &#39;compras&#39;)" class="btn btn-success px-3"><i class="far fa-thumbs-up" aria-hidden="true"></i></button></td>'+
 	            '</tr>';
 
     $( ".table_body_compras" ).append(tabla2);
@@ -137,8 +153,6 @@ ref2.on("child_added", function(snapshot){
  
         
 });
-
-}, 1000);
  
 }
 
@@ -156,4 +170,9 @@ function venderProducto(){
 	location.href = "";
 	  //let userRef = this.database.ref('users/' + userId);
     //userRef.remove()
+}
+
+function eliminarProd(clave, prod){
+	firebase.database().ref("usuarios/"+localStorage.getItem("key")+'/'+prod+'/'+clave).remove();
+	location.href = "";
 }

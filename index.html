@@ -49,7 +49,10 @@
             <a class="nav-link" href="#market">Market</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="registro" target="_blank">Registro</a>
+            <a class="nav-link" id="registroDisabled" href="registro">Registro</a>
+          </li>
+          <li class="nav-item" style="display: none" id="panelDisabled">
+            <a class="nav-link" href="Dashboard">Panel</a>
           </li>
         </ul>
 
@@ -67,8 +70,7 @@
           </li>
           <li class="nav-item">
             <div class="nav-link border border-light rounded" id="usuario">
-                <a href="login"
-                  target="_blank">
+                <a href="login">
                   <i class="fa fa-user mr-2"></i>Ingresar
                 </a>
             </div>
@@ -129,19 +131,19 @@
               <div class="row">
                 <div class="col-md-3">
                     <!-- Default input -->
-                    <input type="number" id="exampleForm2" class="form-control input-filtro" placeholder="Red box">
+                    <input type="number" id="txtRed" class="form-control input-filtro" placeholder="Red box">
                 </div>
                 <div class="col-md-3">
                     <!-- Default input -->
-                    <input type="number" id="exampleForm2" class="form-control input-filtro" placeholder="Fenrir Gold">
+                    <input type="number" id="txtFG" class="form-control input-filtro" placeholder="Fenrir Gold">
                 </div>
                 <div class="col-md-3">
                     <!-- Default input -->
-                    <input type="number" id="exampleForm2" class="form-control input-filtro" placeholder="Sword War">
+                    <input type="number" id="txtWar" class="form-control input-filtro" placeholder="Sword War">
                 </div>
                 <div class="col-md-3">
                     <!-- Default input -->
-                    <input type="number" id="exampleForm2" class="form-control input-filtro" placeholder="Sword Style">
+                    <input type="number" id="txtStyle" class="form-control input-filtro" placeholder="Sword Style">
                 </div>
               </div>
             </div>
@@ -176,7 +178,7 @@
               <div class="col-md-6 mb-4" id="ventas">
 
              
-
+                
               </div>
               <!--Grid column-->
 
@@ -184,10 +186,17 @@
               <div class="col-md-6 mb-4" id="compras">
                 
                 
-
               </div>
               <!--Grid column-->
 
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                  <button type="button" class="btn btn-primary" onclick="verMas()">Ver más</button>
+                </div>
+                <div class="col-md-6">
+                  <button type="button" class="btn btn-primary" onclick="verMenos()">Ver menos</button>
+                </div>
             </div>
 
         </div>
